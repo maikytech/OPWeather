@@ -13,6 +13,9 @@
 		65F05B9626C36B860030C2F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F05B9426C36B860030C2F4 /* Main.storyboard */; };
 		65F05B9826C36B880030C2F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65F05B9726C36B880030C2F4 /* Assets.xcassets */; };
 		65F05B9B26C36B880030C2F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F05B9926C36B880030C2F4 /* LaunchScreen.storyboard */; };
+		65F05BA626C36E730030C2F4 /* NetworkingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F05BA526C36E730030C2F4 /* NetworkingProvider.swift */; };
+		65F05BAA26C36EF00030C2F4 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F05BA926C36EF00030C2F4 /* City.swift */; };
+		65F05BAD26C36F350030C2F4 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F05BAC26C36F350030C2F4 /* EndPoints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		65F05B9726C36B880030C2F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65F05B9A26C36B880030C2F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65F05B9C26C36B880030C2F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65F05BA526C36E730030C2F4 /* NetworkingProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProvider.swift; sourceTree = "<group>"; };
+		65F05BA926C36EF00030C2F4 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		65F05BAC26C36F350030C2F4 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,8 @@
 		65F05B8D26C36B860030C2F4 /* OPWeather */ = {
 			isa = PBXGroup;
 			children = (
+				65F05BA426C36E020030C2F4 /* Networking */,
+				65F05BA326C36DEA0030C2F4 /* Models */,
 				65F05B8E26C36B860030C2F4 /* AppDelegate.swift */,
 				65F05B9026C36B860030C2F4 /* SceneDelegate.swift */,
 				65F05B9226C36B860030C2F4 /* ViewController.swift */,
@@ -65,6 +73,23 @@
 				65F05B9C26C36B880030C2F4 /* Info.plist */,
 			);
 			path = OPWeather;
+			sourceTree = "<group>";
+		};
+		65F05BA326C36DEA0030C2F4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				65F05BA926C36EF00030C2F4 /* City.swift */,
+				65F05BAC26C36F350030C2F4 /* EndPoints.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		65F05BA426C36E020030C2F4 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				65F05BA526C36E730030C2F4 /* NetworkingProvider.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +163,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				65F05B9326C36B860030C2F4 /* ViewController.swift in Sources */,
+				65F05BAA26C36EF00030C2F4 /* City.swift in Sources */,
 				65F05B8F26C36B860030C2F4 /* AppDelegate.swift in Sources */,
+				65F05BA626C36E730030C2F4 /* NetworkingProvider.swift in Sources */,
+				65F05BAD26C36F350030C2F4 /* EndPoints.swift in Sources */,
 				65F05B9126C36B860030C2F4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
