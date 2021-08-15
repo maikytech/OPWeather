@@ -10,25 +10,29 @@ import Foundation
 final class NetworkingProvider {
     
     static let shared = NetworkingProvider()
-    func getCity(cityString: String){
+    func getCity(cityString: String, success: @escaping (_ city: City ) -> (), failure: @escaping (_ error: Error?) -> ()) {
         
         let url = "\(EndPoints.domain)\(cityString)\(EndPoints.appid)"
-        let objectUrl = URL(string: url)
-        
-        let task = URLSession.shared.dataTask(with: objectUrl!) { (data, _, error) in
-            if let error = error{
-                print("ERROR EN EL TASK")
-            }
-            else if let data = data{
-                do {
-                    let response = try JSONDecoder().decode(City.self, from: data)
-                    
-                    print("JSON VALIDO")
-                }catch {
-                    print("ERROR EN EL CATCH")
-                }
-            }
+        guard let objectUrl = URL(string: url) else {
+            print("URL error")
+            return
         }
-        task.resume()
+        
+        URLSession.shared.dataTask(with: objectUrl) { (data, response, error) in
+            
+            guard let data = data else {
+                print("Task error")
+                return
+            }
+
+            do {
+                let decoder = try JSONDecoder().decode(City.self, from: data)
+                success(decoder)
+                
+            }catch let error {
+                print("catch error: \(error.localizedDescription)")
+                failure(error)
+                }
+        }.resume()
     }
 }
