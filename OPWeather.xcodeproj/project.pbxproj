@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		651B5DB726C6140B005A9ABF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651B5DB626C6140B005A9ABF /* HomeViewModel.swift */; };
+		65EFBF8226CB224500FD6E6A /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65EFBF8126CB224500FD6E6A /* Home.storyboard */; };
+		65EFBF8526CB225600FD6E6A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EFBF8426CB225600FD6E6A /* HomeViewController.swift */; };
 		65F05B8F26C36B860030C2F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F05B8E26C36B860030C2F4 /* AppDelegate.swift */; };
-		65F05B9126C36B860030C2F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F05B9026C36B860030C2F4 /* SceneDelegate.swift */; };
 		65F05B9326C36B860030C2F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F05B9226C36B860030C2F4 /* ViewController.swift */; };
 		65F05B9626C36B860030C2F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F05B9426C36B860030C2F4 /* Main.storyboard */; };
 		65F05B9826C36B880030C2F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65F05B9726C36B880030C2F4 /* Assets.xcassets */; };
@@ -21,9 +22,10 @@
 
 /* Begin PBXFileReference section */
 		651B5DB626C6140B005A9ABF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		65EFBF8126CB224500FD6E6A /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		65EFBF8426CB225600FD6E6A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		65F05B8B26C36B860030C2F4 /* OPWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OPWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65F05B8E26C36B860030C2F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		65F05B9026C36B860030C2F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		65F05B9226C36B860030C2F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		65F05B9526C36B860030C2F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		65F05B9726C36B880030C2F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,19 +47,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6574D66826C60A5200A4A0BC /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		6574D66926C60A6400A4A0BC /* ViewModel */ = {
+		6574D66926C60A6400A4A0BC /* HomeViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				651B5DB626C6140B005A9ABF /* HomeViewModel.swift */,
 			);
-			path = ViewModel;
+			path = HomeViewModel;
+			sourceTree = "<group>";
+		};
+		65EFBF8026CB223100FD6E6A /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				65EFBF8126CB224500FD6E6A /* Home.storyboard */,
+				65EFBF8426CB225600FD6E6A /* HomeViewController.swift */,
+			);
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 		65F05B8226C36B860030C2F4 = {
@@ -79,12 +83,11 @@
 		65F05B8D26C36B860030C2F4 /* OPWeather */ = {
 			isa = PBXGroup;
 			children = (
-				6574D66926C60A6400A4A0BC /* ViewModel */,
-				6574D66826C60A5200A4A0BC /* View */,
+				65EFBF8026CB223100FD6E6A /* HomeView */,
+				6574D66926C60A6400A4A0BC /* HomeViewModel */,
 				65F05BA326C36DEA0030C2F4 /* Model */,
 				65F05BA426C36E020030C2F4 /* Networking */,
 				65F05B8E26C36B860030C2F4 /* AppDelegate.swift */,
-				65F05B9026C36B860030C2F4 /* SceneDelegate.swift */,
 				65F05B9226C36B860030C2F4 /* ViewController.swift */,
 				65F05B9426C36B860030C2F4 /* Main.storyboard */,
 				65F05B9726C36B880030C2F4 /* Assets.xcassets */,
@@ -171,6 +174,7 @@
 				65F05B9B26C36B880030C2F4 /* LaunchScreen.storyboard in Resources */,
 				65F05B9826C36B880030C2F4 /* Assets.xcassets in Resources */,
 				65F05B9626C36B860030C2F4 /* Main.storyboard in Resources */,
+				65EFBF8226CB224500FD6E6A /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,10 +188,10 @@
 				65F05B9326C36B860030C2F4 /* ViewController.swift in Sources */,
 				65F05BAA26C36EF00030C2F4 /* City.swift in Sources */,
 				651B5DB726C6140B005A9ABF /* HomeViewModel.swift in Sources */,
+				65EFBF8526CB225600FD6E6A /* HomeViewController.swift in Sources */,
 				65F05B8F26C36B860030C2F4 /* AppDelegate.swift in Sources */,
 				65F05BA626C36E730030C2F4 /* NetworkingProvider.swift in Sources */,
 				65F05BAD26C36F350030C2F4 /* EndPoints.swift in Sources */,
-				65F05B9126C36B860030C2F4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
