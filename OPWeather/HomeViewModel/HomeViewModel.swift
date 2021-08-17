@@ -20,4 +20,18 @@ class HomeViewModel {
         }
     }
     
+    func getCity(cityString: String) {
+        
+        NetworkingProvider.shared.getCity(cityString: cityString) { (city) in
+            print("VM ok")
+            self.dataArray = city
+            print(self.dataArray)
+            
+        } failure: { (error) in
+            print(error.debugDescription)
+        }
+
+        
+    }
+    
 }

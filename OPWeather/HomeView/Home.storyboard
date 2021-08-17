@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dI6-QV-4Zw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dxi-Uq-h9r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,25 +9,85 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--City-->
         <scene sceneID="kO0-ym-gal">
             <objects>
                 <viewController id="dI6-QV-4Zw" customClass="HomeViewController" customModule="OPWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HXf-hA-PuU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="MXn-fH-lwr">
+                                <rect key="frame" x="0.0" y="88" width="414" height="173"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0tM-eF-7Eu">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nlm-xI-7Yk">
+                                        <rect key="frame" x="186.5" y="130" width="41.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNS-3H-aMN">
+                                        <rect key="frame" x="186.5" y="152.5" width="41.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cV0-qV-Izg">
+                                <rect key="frame" x="0.0" y="311" width="414" height="585"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="zHL-qI-PcG"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MXn-fH-lwr" firstAttribute="trailing" secondItem="zHL-qI-PcG" secondAttribute="trailing" id="OQm-IG-BCt"/>
+                            <constraint firstItem="cV0-qV-Izg" firstAttribute="trailing" secondItem="zHL-qI-PcG" secondAttribute="trailing" id="eU6-aV-2Mb"/>
+                            <constraint firstAttribute="bottom" secondItem="cV0-qV-Izg" secondAttribute="bottom" id="fPJ-BG-M2m"/>
+                            <constraint firstItem="MXn-fH-lwr" firstAttribute="leading" secondItem="zHL-qI-PcG" secondAttribute="leading" id="hxM-Se-HcW"/>
+                            <constraint firstItem="cV0-qV-Izg" firstAttribute="top" secondItem="MXn-fH-lwr" secondAttribute="bottom" constant="50" id="lfe-8w-8vU"/>
+                            <constraint firstItem="cV0-qV-Izg" firstAttribute="leading" secondItem="zHL-qI-PcG" secondAttribute="leading" id="n3D-sM-oF1"/>
+                            <constraint firstItem="MXn-fH-lwr" firstAttribute="top" secondItem="zHL-qI-PcG" secondAttribute="top" id="z3n-EI-Dvw"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="City" id="M8i-Yi-64i"/>
+                    <connections>
+                        <outlet property="currentCityImageView" destination="0tM-eF-7Eu" id="v8c-Lo-quD"/>
+                        <outlet property="currentForecastLabel" destination="VNS-3H-aMN" id="gVt-nY-85N"/>
+                        <outlet property="defaultCitiesTableView" destination="cV0-qV-Izg" id="pLB-M7-n7A"/>
+                        <outlet property="temperatureLabel" destination="Nlm-xI-7Yk" id="Ole-K4-k9b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I2Z-26-jVW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-614" y="133"/>
+            <point key="canvasLocation" x="295.6521739130435" y="132.58928571428572"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VdY-lc-LLQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dxi-Uq-h9r" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="819-Xk-XVo">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dI6-QV-4Zw" kind="relationship" relationship="rootViewController" id="59U-gi-skd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uVd-Ck-vLZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-614.49275362318849" y="132.58928571428572"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

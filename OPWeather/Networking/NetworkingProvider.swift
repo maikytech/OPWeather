@@ -10,6 +10,7 @@ import Foundation
 final class NetworkingProvider {
     
     static let shared = NetworkingProvider()
+    
     func getCity(cityString: String, success: @escaping (_ city: City ) -> (), failure: @escaping (_ error: Error?) -> ()) {
         
         let url = "\(EndPoints.domain)\(cityString)\(EndPoints.appid)"
