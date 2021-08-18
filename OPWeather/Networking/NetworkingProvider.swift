@@ -6,14 +6,42 @@
 //
 
 import Foundation
+import CoreLocation
 
 final class NetworkingProvider {
     
     static let shared = NetworkingProvider()
     
-    func getCity(cityString: String, success: @escaping (_ city: City ) -> (), failure: @escaping (_ error: Error?) -> ()) {
+    func fetchServiceByCity(cityString: String, success: @escaping (_ city: City ) -> (), failure: @escaping (_ error: Error?) -> ()) {
         
-        let url = "\(EndPoints.domain)\(cityString)\(EndPoints.appid)"
+        let url = "\(EndPoints.domain)q=\(cityString)\(EndPoints.appid)"
+        guard let objectUrl = URL(string: url) else {
+            print("URL error")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: objectUrl) { (data, response, error) in
+            
+            guard let data = data else {
+                print("Task error")
+                return
+            }
+
+            do {
+                let decoder = try JSONDecoder().decode(City.self, from: data)
+                success(decoder)
+                
+            }catch let error {
+                print("catch error: \(error.localizedDescription)")
+                failure(error)
+                }
+        }.resume()
+    }
+    
+    func fetchServiceByCoordinates(latitude: CLLocationDegrees, longitude: CLLocationDegrees, success: @escaping (_ city: City ) -> (), failure: @escaping (_ error: Error?) -> ()) {
+        
+        let url = "\(EndPoints.domain)lat=\(latitude)&lon=\(longitude)\(EndPoints.appid)"
+        
         guard let objectUrl = URL(string: url) else {
             print("URL error")
             return
