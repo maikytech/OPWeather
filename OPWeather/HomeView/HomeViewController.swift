@@ -93,7 +93,7 @@ extension HomeViewController: UITableViewDataSource {
                 cell.temperatureLabel.text = String((main.temp!))
             }
             
-            cell.forecastDescriptionLabel.text = object.weather![0].main
+            cell.forecastDescriptionLabel.text = object.weather![0].description
                 
         }
         
