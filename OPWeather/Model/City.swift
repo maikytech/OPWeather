@@ -8,10 +8,10 @@
 import Foundation
 
 struct City: Codable {
-    let coord: Coordinate?
+    //let coord: Coordinate?
     let weather: [Weather]?
     let main: Temperature?
-    let id: Int?
+    //let id: Int?
     let name: String?
     
 }

@@ -5,6 +5,10 @@
 //  Created by Maiqui Cedeño on 10/08/21.
 //
 
+//https://api.openweathermap.org/data/2.5/weather?q=London&appid=ac7872d7a25cd163a5f600440e53629b
+//domain = "https://api.openweathermap.org/data/2.5/weather?"
+//appid = "&appid=ac7872d7a25cd163a5f600440e53629b"
+
 import Foundation
 import CoreLocation
 
@@ -16,7 +20,7 @@ final class NetworkingProvider {
         
         let url = "\(EndPoints.domain)q=\(cityString)\(EndPoints.appid)"
         guard let objectUrl = URL(string: url) else {
-            print("URL error")
+            print("URL error by city")
             return
         }
         
@@ -43,7 +47,7 @@ final class NetworkingProvider {
         let url = "\(EndPoints.domain)lat=\(latitude)&lon=\(longitude)\(EndPoints.appid)"
         
         guard let objectUrl = URL(string: url) else {
-            print("URL error")
+            print("URL error by coordinates")
             return
         }
         

@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     //MARK: - Properties
     private var viewModel = HomeViewModel()
     private let cellId = "HomeTableViewCell"
-    private var cities = ["New York", "Madrid", "Los Angeles", "Berlin", "London"]
+    private var cities = ["New York City", "Madrid", "Los Angeles", "Berlin", "London"]
     private var locationManager: CLLocationManager?
     private var userLocation: CLLocation?
 //    private var latitudD: CLLocationDegrees?
@@ -31,7 +31,11 @@ class HomeViewController: UIViewController {
         
         setupUI()
         bind()
-        //viewModel.getByCity(cityString: "Madrid", requestBy: "City")
+        viewModel.getByCity(cityString: "New%20York%20City", requestBy: "City")
+        viewModel.getByCity(cityString: "Madrid", requestBy: "City")
+        viewModel.getByCity(cityString: "Los%20Angeles", requestBy: "City")
+        viewModel.getByCity(cityString: "Berlin", requestBy: "City")
+        viewModel.getByCity(cityString: "London", requestBy: "City")
         requestLocation()
      
         
@@ -50,6 +54,8 @@ class HomeViewController: UIViewController {
         viewModel.refreshData = { [weak self] () in
             DispatchQueue.main.async {
                 self?.defaultCitiesTableView.reloadData()
+                //print(self?.viewModel.dataArray[0].name)
+                print(self?.viewModel.dataArray)
             }
         }
     }
@@ -73,11 +79,23 @@ class HomeViewController: UIViewController {
 //MARK: - UITableViewDataSource
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cities.count
+        return self.viewModel.dataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId)!
+        let object = viewModel.dataArray[indexPath.row]
+        
+        if let cell = cell as? HomeTableViewCell {
+            cell.cityNameLabel.text = object.name
+            
+            if let main = object.main {
+                cell.temperatureLabel.text = String((main.temp!))
+            }
+            
+            cell.forecastDescriptionLabel.text = object.weather![0].main
+                
+        }
         
         return cell
     }
@@ -102,7 +120,8 @@ extension HomeViewController: CLLocationManagerDelegate {
             return
         }
         
-        self.viewModel.getByCoordinates(latitude: latitud, longitude: longitude)
+        //self.viewModel.getByCoordinates(latitude: latitud, longitude: longitude)
+       
     }
     
 }

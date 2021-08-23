@@ -8,7 +8,10 @@
 import UIKit
 
 class HomeTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak var forecastImageView: UIImageView!
+    @IBOutlet weak var forecastDescriptionLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
