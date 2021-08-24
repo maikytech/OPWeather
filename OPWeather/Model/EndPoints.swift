@@ -12,4 +12,5 @@ import Foundation
 struct EndPoints {
     static let domain = "https://api.openweathermap.org/data/2.5/weather?"
     static let appid = "&units=metric&appid=ac7872d7a25cd163a5f600440e53629b"
+    static let imagesRepository = "http://openweathermap.org/img/wn/"
 }

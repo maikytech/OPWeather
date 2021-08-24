@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import Kingfisher
 
 class HomeViewController: UIViewController {
     
@@ -37,7 +38,6 @@ class HomeViewController: UIViewController {
         viewModel.getByCity(cityString: "Berlin", requestBy: "City")
         viewModel.getByCity(cityString: "London", requestBy: "City")
         requestLocation()
-     
         
     }
     
@@ -94,6 +94,17 @@ extension HomeViewController: UITableViewDataSource {
             }
             
             cell.forecastDescriptionLabel.text = object.weather![0].description
+            
+            if let idImage = object.weather![0].icon {
+                
+                
+                //http://openweathermap.org/img/wn/10d@2x.png
+                print("El id de la imagen es: \(idImage)")
+                let urlImage = "\(EndPoints.imagesRepository)\(idImage)@2x.png"
+                cell.forecastImageView.kf.setImage(with: URL(string: urlImage))
+
+            }
+            
                 
         }
         

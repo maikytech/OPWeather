@@ -50,5 +50,22 @@
     <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
     <string>The App will use your location</string>
     
+    <!------ Security Exceptions ------->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>openweathermap.org</key>
+            <dict>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+            </dict>
+        </dict>
+    </dict>
+    
 </dict>
 </plist>
