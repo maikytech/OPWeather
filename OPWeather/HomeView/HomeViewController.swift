@@ -32,13 +32,8 @@ class HomeViewController: UIViewController {
         
         setupUI()
         bind()
-        viewModel.getByCity(cityString: "New%20York%20City", requestBy: "City")
-        viewModel.getByCity(cityString: "Madrid", requestBy: "City")
-        viewModel.getByCity(cityString: "Los%20Angeles", requestBy: "City")
-        viewModel.getByCity(cityString: "Berlin", requestBy: "City")
-        viewModel.getByCity(cityString: "London", requestBy: "City")
         requestLocation()
-        
+        getForecastMainCities()
     }
     
     private func setupUI() {
@@ -54,8 +49,6 @@ class HomeViewController: UIViewController {
         viewModel.refreshData = { [weak self] () in
             DispatchQueue.main.async {
                 self?.defaultCitiesTableView.reloadData()
-                //print(self?.viewModel.dataArray[0].name)
-                print(self?.viewModel.dataArray)
             }
         }
     }
@@ -73,6 +66,14 @@ class HomeViewController: UIViewController {
         locationManager?.startUpdatingLocation()
     }
     
+    private func getForecastMainCities() {
+        viewModel.getByCity(cityString: "New%20York%20City")
+        viewModel.getByCity(cityString: "Madrid")
+        viewModel.getByCity(cityString: "Los%20Angeles")
+        viewModel.getByCity(cityString: "Berlin")
+        viewModel.getByCity(cityString: "London")
+    }
+    
    
 }
 
@@ -88,26 +89,17 @@ extension HomeViewController: UITableViewDataSource {
         
         if let cell = cell as? HomeTableViewCell {
             cell.cityNameLabel.text = object.name
+            cell.forecastDescriptionLabel.text = object.weather![0].description
             
             if let main = object.main {
                 cell.temperatureLabel.text = String((main.temp!))
             }
             
-            cell.forecastDescriptionLabel.text = object.weather![0].description
-            
             if let idImage = object.weather![0].icon {
-                
-                
-                //http://openweathermap.org/img/wn/10d@2x.png
-                print("El id de la imagen es: \(idImage)")
                 let urlImage = "\(EndPoints.imagesRepository)\(idImage)@2x.png"
                 cell.forecastImageView.kf.setImage(with: URL(string: urlImage))
-
             }
-            
-                
         }
-        
         return cell
     }
 }

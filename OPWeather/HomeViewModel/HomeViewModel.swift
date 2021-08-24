@@ -18,20 +18,14 @@ class HomeViewModel {
     public var dataArray: [City] = [] {
         didSet {
             refreshData()
-            //print(self.dataArray)
         }
     }
     
-    func getByCity(cityString: String, requestBy: String) {
+    func getByCity(cityString: String) {
         NetworkingProvider.shared.fetchServiceByCity(cityString: cityString) { (city) in
-            print("getByCity ok")
-            //self.dataArray.append(city)
             self.dataArray.append(city)
-            //print(self.dataArray)
-            
         } failure: { (error) in
             print(error.debugDescription)
-            print("Error en getByCity")
         }
     }
     
@@ -40,10 +34,8 @@ class HomeViewModel {
             print("getByCoordinates ok")
             //self.dataArray.append(city)
             //print(self.dataArray)
-            
         } failure: { (error) in
             print(error.debugDescription)
-            print("Error en getByCoordinates")
         }
     }
 }
